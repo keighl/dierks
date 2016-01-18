@@ -8,8 +8,6 @@ Dierks is a library for stubbing HTTP responses in Golang tests using chained me
 
     go get -u github.com/keighl/dierks
 
-```
-
 ### Documentation
 
 http://godoc.org/github.com/keighl/dierks
