@@ -1,6 +1,6 @@
 # Dierks
 
-[![Build Status](https://travis-ci.org/keighl/dierks.png?branch=master)](https://travis-ci.org/keighl/dierks) [![Coverage Status](https://coveralls.io/repos/keighl/dierks/badge.svg)](https://coveralls.io/r/keighl/dierks)
+[![Build Status](https://travis-ci.org/keighl/dierks.png?branch=master)](https://travis-ci.org/keighl/dierks) [![codecov.io](https://codecov.io/github/keighl/dierks/coverage.svg?branch=master)](https://codecov.io/github/keighl/dierks?branch=master)
 
 Dierks is a library for stubbing HTTP responses in Golang tests using chained methods. Perfect for testing API wrappers!
 
