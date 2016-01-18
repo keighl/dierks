@@ -2,11 +2,10 @@ package dierks
 
 import (
 	"io/ioutil"
-	"testing"
 	"fmt"
 )
 
-func Example_Basic(t *testing.T) {
+func Example_Basic() {
 	server, client := Res().Body(`{"data":false}`).Start()
 	defer server.Close()
 
@@ -19,7 +18,7 @@ func Example_Basic(t *testing.T) {
 	fmt.Println(resp.Header.Get("ContentType")) // application/json
 }
 
-func Example_Headers(t *testing.T) {
+func Example_Headers() {
 	server, client := Res().
 		Header("Authorization", "Bearer XXXXX").
 		Header("X-CLIENT-ID", "XXXXXXXXXX").
@@ -33,7 +32,7 @@ func Example_Headers(t *testing.T) {
 	fmt.Println(resp.StatusCode) // 200
 }
 
-func Example_ContentType(t *testing.T) {
+func Example_ContentType() {
 	server, client := Res().Body(`<data>false</data>`).
 		ContentType("application/xml").
 		// or .XML() .JSON()
@@ -45,7 +44,7 @@ func Example_ContentType(t *testing.T) {
 	fmt.Println(resp.Header.Get("ContentType")) // application/xml
 }
 
-func Example_Status(t *testing.T) {
+func Example_Status() {
 	server, client := Res().Status(301).Start()
 	defer server.Close()
 
