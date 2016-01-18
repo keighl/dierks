@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func Example_Basic() {
+func ExampleBody() {
 	server, client := Res().Body(`{"data":false}`).Start()
 	defer server.Close()
 
@@ -13,12 +13,15 @@ func Example_Basic() {
 
 	body, _ := ioutil.ReadAll(resp.Body)
 
-	fmt.Println(string(body)) // {"data":false}
-	fmt.Println(resp.StatusCode) // 200
-	fmt.Println(resp.Header.Get("ContentType")) // application/json
+	fmt.Println(string(body))
+	fmt.Println(resp.StatusCode)
+	fmt.Println(resp.Header.Get("Content-Type"))
+	// Output: {"data":false}
+	// 200
+	// application/json
 }
 
-func Example_Headers() {
+func ExampleHeader() {
 	server, client := Res().
 		Header("Authorization", "Bearer XXXXX").
 		Header("X-CLIENT-ID", "XXXXXXXXXX").
@@ -27,12 +30,13 @@ func Example_Headers() {
 
 	resp, _ := client.Get("http://google.com")
 
-	fmt.Println(resp.Header.Get("Authorization")) // Bearer XXXXX
-	fmt.Println(resp.Header.Get("X-CLIENT-ID")) // XXXXXXXXXX
-	fmt.Println(resp.StatusCode) // 200
+	fmt.Println(resp.Header.Get("Authorization"))
+	fmt.Println(resp.Header.Get("X-CLIENT-ID"))
+	// Output: Bearer XXXXX
+	// XXXXXXXXXX
 }
 
-func Example_ContentType() {
+func ExampleContentType() {
 	server, client := Res().Body(`<data>false</data>`).
 		ContentType("application/xml").
 		// or .XML() .JSON()
@@ -41,14 +45,16 @@ func Example_ContentType() {
 
 	resp, _ := client.Get("http://google.com")
 
-	fmt.Println(resp.Header.Get("ContentType")) // application/xml
+	fmt.Println(resp.Header.Get("Content-Type"))
+	// Output: application/xml
 }
 
-func Example_Status() {
-	server, client := Res().Status(301).Start()
+func ExampleStatus() {
+	server, client := Res().Status(304).Start()
 	defer server.Close()
 
 	resp, _ := client.Get("http://google.com")
 
-	fmt.Println(resp.StatusCode) // 301
+	fmt.Println(resp.StatusCode)
+	// Output: 304
 }
