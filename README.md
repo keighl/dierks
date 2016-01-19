@@ -43,6 +43,7 @@ func TestGoogle(t *testing.T) {
     body, _ := ioutil.ReadAll(resp.Body)
     defer resp.Body.Close()
 
+    // What?! Google returned my JSON!
     expect(t, string(body), responsePayload)
 }
 ```
