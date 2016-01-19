@@ -1,12 +1,13 @@
-package dierks
+package dierks_test
 
 import (
+	"github.com/keighl/dierks"
 	"io/ioutil"
 	"fmt"
 )
 
 func ExampleBody() {
-	server, client := Res().Body(`{"data":false}`).Start()
+	server, client := dierks.Res().Body(`{"data":false}`).Start()
 	defer server.Close()
 
 	resp, _ := client.Get("http://google.com")
@@ -22,7 +23,7 @@ func ExampleBody() {
 }
 
 func ExampleHeader() {
-	server, client := Res().
+	server, client := dierks.Res().
 		Header("Authorization", "Bearer XXXXX").
 		Header("X-CLIENT-ID", "XXXXXXXXXX").
 		Body(`...`).Start()
@@ -37,7 +38,7 @@ func ExampleHeader() {
 }
 
 func ExampleContentType() {
-	server, client := Res().Body(`<data>false</data>`).
+	server, client := dierks.Res().Body(`<data>false</data>`).
 		ContentType("application/xml").
 		// or .XML() .JSON()
 		Start()
@@ -50,7 +51,7 @@ func ExampleContentType() {
 }
 
 func ExampleStatus() {
-	server, client := Res().Status(304).Start()
+	server, client := dierks.Res().Status(304).Start()
 	defer server.Close()
 
 	resp, _ := client.Get("http://google.com")
