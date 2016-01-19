@@ -40,19 +40,20 @@ func TestGoogle(t *testing.T) {
     // Make a request through the client
     resp, _ := client.Get("http://google.com")
 
+    // Let's look at what the response has...
     body, _ := ioutil.ReadAll(resp.Body)
     defer resp.Body.Close()
 
-    // What?! Google returned my JSON!
+    // What?! Google returned my JSON! Cool!
     expect(t, string(body), responsePayload)
 }
 ```
-More realistically, you might use dierks to test how an API wrapper-lib maps a response to a struct.
+More realistically, you might use dierks to test a API wrapper-lib method.
 
 ```go
 func TestGetUser(t *testing.T) {
-
     responsePayload := `{"user": {"id": 3, "name": "Kyle"}}`
+
     server, client := dierks.Res().Body(responsePayload).Start()
     defer server.Close()
 
