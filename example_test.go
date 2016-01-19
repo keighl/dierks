@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func ExampleBody() {
+func ExampleResponseBuilder_Body() {
 	server, client := dierks.Res().Body(`{"data":false}`).Start()
 	defer server.Close()
 
@@ -22,7 +22,7 @@ func ExampleBody() {
 	// application/json
 }
 
-func ExampleHeader() {
+func ExampleResponseBuilder_Header() {
 	server, client := dierks.Res().
 		Header("Authorization", "Bearer XXXXX").
 		Header("X-CLIENT-ID", "XXXXXXXXXX").
@@ -37,7 +37,7 @@ func ExampleHeader() {
 	// XXXXXXXXXX
 }
 
-func ExampleContentType() {
+func ExampleResponseBuilder_ContentType() {
 	server, client := dierks.Res().Body(`<data>false</data>`).
 		ContentType("application/xml").
 		// or .XML() .JSON()
@@ -50,7 +50,7 @@ func ExampleContentType() {
 	// Output: application/xml
 }
 
-func ExampleStatus() {
+func ExampleResponseBuilder_Status() {
 	server, client := dierks.Res().Status(304).Start()
 	defer server.Close()
 
