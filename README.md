@@ -8,7 +8,7 @@ Dierks is a library for stubbing HTTP responses in Golang tests using chained me
 
     go get -u github.com/keighl/dierks
 
-### Usage
+### Basic Usage
 
 Dierks stubs HTTP responses for requests made through an `http.Client`. Here's a simple example showing how to stub the response body for a request to google.com.
 
@@ -62,4 +62,8 @@ func TestGetUser(t *testing.T) {
     expect(t, user.Name, "Kyle")
 }
 ```
+
+### Building a Response
+
+###
 

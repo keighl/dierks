@@ -9,19 +9,19 @@ import (
 
 // ResponseBuilder holds the body and content to be stubbed from an http client
 type ResponseBuilder struct {
-	statusCode   int
-	contentType  string
-	body         []byte
-	headers      map[string]string
+	statusCode  int
+	contentType string
+	body        []byte
+	headers     map[string]string
 }
 
 // Res builds a default ResponseBuilders (empty 200 JSON response)
 func Res() ResponseBuilder {
 	return ResponseBuilder{
-		statusCode:   200,
-		contentType:  "application/json",
-		body:         []byte{},
-		headers:      map[string]string{},
+		statusCode:  200,
+		contentType: "application/json",
+		body:        []byte{},
+		headers:     map[string]string{},
 	}
 }
 

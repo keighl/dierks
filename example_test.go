@@ -1,9 +1,9 @@
 package dierks_test
 
 import (
+	"fmt"
 	"github.com/keighl/dierks"
 	"io/ioutil"
-	"fmt"
 )
 
 func ExampleResponseBuilder_Body() {
